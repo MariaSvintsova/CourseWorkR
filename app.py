@@ -7,6 +7,7 @@ import json
 from json import JSONDecodeError
 
 app = Flask(__name__, template_folder='templates')
+app.config['JSON_AS_ASCII'] = False
 
 
 
@@ -38,7 +39,6 @@ def show_posts(user_name):
 def search_posts1():
     word = request.args.get('word')
     posts = search_posts(word)
-    print(posts)
     return render_template('index.html', posts=posts)
 
 
